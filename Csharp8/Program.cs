@@ -1,4 +1,5 @@
 ﻿using System;
+using CSharp8.Features;
 
 namespace Csharp8
 {
@@ -7,6 +8,11 @@ namespace Csharp8
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+
+            var res = TuplePattern.RockPaperScissors("rock", "paper");
+            Console.WriteLine(res);
+
 
             Console.ReadKey();
         }
