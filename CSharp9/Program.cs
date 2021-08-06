@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using CSharp9.Features;
 
 namespace CSharp9
@@ -52,8 +55,31 @@ namespace CSharp9
 
             #endregion
 
+
         }
 
+
+        #region Module Initializer
+
+        public static string Name;
+
+        [ModuleInitializer]
+        public static async void Init()
+        {
+            Name = await GetName();
+        }
+
+        [ModuleInitializer]
+        public static async void Init2()
+        {
+            Name = "second Name";
+        }
+
+        public static Task<string> GetName()
+        {
+            return Task.FromResult("Mostafa From Task");
+        }
+        #endregion
 
     }
 }
