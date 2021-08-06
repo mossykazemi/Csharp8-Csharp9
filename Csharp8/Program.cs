@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using CSharp8.Features;
 
 namespace Csharp8
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //Console.WriteLine("Hello World!");
 
@@ -13,15 +14,20 @@ namespace Csharp8
             //var res = TuplePattern.RockPaperScissors("rock", "paper");
             //Console.WriteLine(res);
 
-            Phone myPhone = new Phone
+            //Phone myPhone = new Phone
+            //{
+            //    Color = "Pink",
+            //    Price = 10000000
+            //};
+
+            //var res = PropertyPattern.GetTotalPrice(myPhone);
+            //Console.WriteLine(res.ToString("#,0"));
+
+            await foreach (var number in AsynchronousStreams.GenerateNumbers())
             {
-                Color = "Pink",
-                Price = 10000000
-            };
-
-            var res = PropertyPattern.GetTotalPrice(myPhone);
-            Console.WriteLine(res.ToString("#,0"));
-
+                Console.WriteLine(number);
+            }
+            
             Console.ReadKey();
         }
     }
